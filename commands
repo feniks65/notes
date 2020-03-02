@@ -1,0 +1,20 @@
+Start docker container with mounted Dropbox folder:
+sudo docker run -it -v /home/wojtek/Dropbox/:/home/root/Dropbox ubuntu
+
+Set MASQUERADE on eno1 interface:
+sudo iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE
+
+Redirect traffic that goes onto port 80 to mitmproxy which is started on the port 8080, good for inspecting http traffic using mitmproxy:
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+List iptables rules with they line numbers:
+sudo iptables -t nat -L --line-number
+
+Delete rules from iptables:
+sudo iptables -t nat -D PREROUTING 2
+
+Start mitmproxy in transparent mode:
+./mitmproxy --mode transparent --showhost
+
+Run interactive ubuntu container in docker:
+sudo docker run -it ubuntu

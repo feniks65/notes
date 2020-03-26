@@ -18,3 +18,6 @@ Start mitmproxy in transparent mode:
 
 Run interactive ubuntu container in docker:
 sudo docker run -it ubuntu
+
+Start docker container with display support that will be removed after exiting:
+docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix /bin/bash

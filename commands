@@ -21,3 +21,10 @@ sudo docker run -it ubuntu
 
 Start docker container with display support that will be removed after exiting:
 docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix /bin/bash
+
+Mount VirtualBox vdi disk in Ubuntu:
+sudo rmmod nbd
+sudo modprobe nbd max_part=16
+sudo qemu-nbd -c /dev/nbd0 drive.vdi
+sudo mount /dev/nbd0p1 /mnt
+sudo qemu-nbd -d /dev/nbd0

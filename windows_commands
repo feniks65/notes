@@ -1,0 +1,2 @@
+Set UTF-8 encoding for pythton 2.7.16 in PowerShell Windows 10:
+$env:PYTHONIOENCODING="UTF-8"

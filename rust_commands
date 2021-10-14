@@ -1,0 +1,5 @@
+List tests:
+cargo test -- --list 
+
+Start particular test:
+cargo test test_fn_name -- --exact

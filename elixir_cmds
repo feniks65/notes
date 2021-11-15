@@ -1,0 +1,2 @@
+Start elixir interpreter with mix:
+iex -S mix

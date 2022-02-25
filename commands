@@ -34,3 +34,9 @@ pass in on enXXXXXX proto tcp from any to any port 80 rdr-to 192.168.1.20 port 8
 
 Start root command in the container:
 docker exec -u 0 -it mycontainer /bin/bash
+
+Forward logs over socat connection:
+  sender
+  journalctl -f | ./socat-armel-static -u STDIO TCP:192.168.1.168:8080,end-close
+  receiver
+  socat -t 10 -d TCP-LISTEN:8080,fork OPEN:out3.txt,append

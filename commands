@@ -40,3 +40,6 @@ Forward logs over socat connection:
   journalctl -f | ./socat-armel-static -u STDIO TCP:192.168.1.168:8080,end-close
   receiver
   socat -t 10 -d TCP-LISTEN:8080,fork OPEN:out3.txt,append
+
+Start docker with current dir as work dir:
+docker run --rm -it -v $(pwd):/work ubuntu
